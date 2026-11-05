@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade 8 Mathematics: Unit 3 Mastery Review</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap');
+    body {
+      font-family: 'Inter', 'Noto Sans Ethiopic', sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 9999px;
+    }
+    .blank-input {
+      transition: all 0.2s ease-in-out;
+    }
+    .blank-input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- TOP APP HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-700 to-indigo-500 text-white flex items-center justify-center font-extrabold shadow-md shadow-brand-500/20">
+          <i class="fa-solid fa-shapes text-lg"></i>
+        </div>
+        <div>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600 block">Grade 8 Mathematics</span>
+          <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">Unit 3: Linear Equations & Inequalities</h1>
+        </div>
+      </div>
+
+      <!-- Header Action Pill -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <button id="ttsToggleBtn" title="British Woman Narrator" class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-700 bg-slate-50 hover:bg-slate-100 flex items-center space-x-1.5 text-xs sm:text-sm font-medium transition shadow-sm">
+          <i id="ttsIcon" class="fa-solid fa-volume-high text-brand-600"></i>
+          <span class="hidden sm:inline" id="ttsStatusText">Narrator: ON</span>
+        </button>
+
+        <button id="quickOverviewBtn" class="hidden px-3 py-1.5 rounded-lg border border-indigo-200 text-indigo-700 bg-indigo-50 hover:bg-indigo-100 items-center space-x-1.5 text-xs sm:text-sm font-medium transition">
+          <i class="fa-solid fa-grid-2"></i>
+          <span>Grid (<span id="answeredCountHeader">0</span>/60)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
+
+    <!-- STEP 1: STUDENT IDENTIFICATION ONBOARDING -->
+    <div id="introCard" class="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 sm:p-10 transition-all duration-300">
+      <div class="text-center max-w-xl mx-auto">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200/60 mb-4">
+          <i class="fa-solid fa-graduation-cap"></i> Interactive Fill-in-the-Blank Assessment
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Student Registration & Guidelines</h2>
+        <p class="text-slate-500 text-sm sm:text-base mt-2">
+          Test your mastery across all 4 key areas: Coordinate Plane, Graphs of Lines, Transformation Rules of Inequalities, and Word Problem Translations.
+        </p>
+      </div>
+
+      <!-- Form Inputs -->
+      <div class="mt-8 max-w-lg mx-auto space-y-4">
+        <div>
+          <label for="studentName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Student Name *</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-regular fa-user"></i>
+            </span>
+            <input type="text" id="studentName" placeholder="e.g. Abebe Bikila" class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none text-sm font-medium transition">
+          </div>
+        </div>
+
+        <div>
+          <label for="studentId" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Student Identification Number *</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-regular fa-id-card"></i>
+            </span>
+            <input type="text" id="studentId" placeholder="e.g. ETH-G8-0941" class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none text-sm font-medium transition">
+          </div>
+        </div>
+
+        <!-- Instructional Highlights -->
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200/80 text-xs text-slate-600 space-y-2">
+          <div class="flex items-start gap-2">
+            <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
+            <span><strong>Authentic Fill-in-the-Blank:</strong> Questions maintain strict authentic blank entries without multiple-choice hints.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <i class="fa-solid fa-lock text-amber-500 mt-0.5"></i>
+            <span><strong>Irreversible Answer Verification:</strong> Once submitted, answers lock immediately to evaluate retention.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <i class="fa-solid fa-language text-brand-600 mt-0.5"></i>
+            <span><strong>Bilingual Feedback:</strong> Every response unlocks thorough English and Amharic explanations.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <i class="fa-solid fa-headphones text-purple-600 mt-0.5"></i>
+            <span><strong>British Narrator:</strong> Hear clear spoken enunciations of every problem and explanation.</span>
+          </div>
+        </div>
+
+        <div id="introValidationMsg" class="hidden text-rose-600 text-xs font-medium text-center bg-rose-50 p-2.5 rounded-lg border border-rose-200">
+          Please enter both your Full Name and Student ID to begin.
+        </div>
+
+        <button id="startQuizBtn" class="w-full py-3 px-6 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm sm:text-base shadow-lg shadow-brand-500/25 transition flex items-center justify-center gap-2">
+          <span>Start Assessment Now</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2: ACTIVE QUIZ VIEW -->
+    <div id="quizContainer" class="hidden flex flex-col space-y-6">
+
+      <!-- Progress Bar & Top Bar -->
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200/80 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="w-full sm:w-1/2">
+          <div class="flex justify-between items-center text-xs font-semibold text-slate-600 mb-1.5">
+            <span>Progress: Question <span id="currentQIdx">1</span> of 60</span>
+            <span id="progressPercent">0%</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+            <div id="progressBarFill" class="bg-brand-600 h-2.5 rounded-full transition-all duration-300" style="width: 1.67%"></div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 text-xs font-semibold">
+          <div class="flex items-center gap-1.5 text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Correct: <strong id="scoreCorrect">0</strong></span>
+          </div>
+          <div class="flex items-center gap-1.5 text-rose-600 bg-rose-50 px-3 py-1.5 rounded-lg border border-rose-200">
+            <i class="fa-solid fa-circle-xmark"></i>
+            <span>Wrong: <strong id="scoreWrong">0</strong></span>
+          </div>
+          <div class="flex items-center gap-1.5 text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg">
+            <i class="fa-solid fa-hourglass-half"></i>
+            <span>Remaining: <strong id="scoreRemaining">60</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUESTION CARD -->
+      <div class="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden transition-all">
+        
+        <!-- Question Card Header -->
+        <div class="bg-gradient-to-r from-slate-900 to-indigo-950 px-6 py-4 text-white flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span id="questionCategoryBadge" class="bg-indigo-500/30 text-indigo-200 border border-indigo-400/30 px-3 py-0.5 rounded-full text-xs font-semibold tracking-wide">
+              Part 1: The Cartesian Coordinate System
+            </span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="speakQuestionBtn" title="Listen to question" class="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition text-sm flex items-center gap-1.5">
+              <i class="fa-solid fa-volume-high"></i>
+              <span class="text-xs hidden sm:inline">Narrate</span>
+            </button>
+            <span class="text-xs text-slate-300 font-mono">Q#<span id="qNumberBadge">1</span></span>
+          </div>
+        </div>
+
+        <!-- Question Body Area -->
+        <div class="p-6 sm:p-8 space-y-6">
+          <!-- Text Prompt -->
+          <div class="text-base sm:text-lg leading-relaxed text-slate-800 font-medium" id="questionPromptContainer">
+            <!-- Dynamic prompt with inline input blanks -->
+          </div>
+
+          <!-- Submission Action Bar -->
+          <div id="checkAnswerRow" class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-100">
+            <p class="text-xs text-slate-400 italic">
+              <i class="fa-solid fa-circle-info mr-1"></i> Type your answers into the blank(s) above, then verify.
+            </p>
+            <button id="submitAnswerBtn" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm rounded-xl shadow-md shadow-brand-500/20 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-check-double"></i>
+              <span>Verify & Lock Answer</span>
+            </button>
+          </div>
+
+          <!-- FEEDBACK & EXPLANATION CARD (HIDDEN UNTIL ANSWERED) -->
+          <div id="feedbackContainer" class="hidden rounded-xl border p-5 transition-all space-y-4">
+            
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-3">
+                <div id="feedbackIconBox" class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-white text-base">
+                  <!-- Check or cross icon -->
+                </div>
+                <div>
+                  <h4 id="feedbackTitle" class="text-base font-bold"></h4>
+                  <p id="feedbackSummary" class="text-xs font-medium"></p>
+                </div>
+              </div>
+              <button id="speakExplanationBtn" title="Listen to explanation" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition flex items-center gap-1 shadow-sm">
+                <i class="fa-solid fa-volume-high text-brand-600"></i>
+                <span class="hidden sm:inline">Read Details</span>
+              </button>
+            </div>
+
+            <!-- Correct Answer Reference -->
+            <div id="officialAnswerBlock" class="p-3 bg-white/70 rounded-lg border border-slate-200/70 text-xs sm:text-sm">
+              <span class="font-bold text-slate-700">Official Correct Answer: </span>
+              <span id="officialAnswerText" class="font-bold text-brand-700 font-mono"></span>
+            </div>
+
+            <!-- Bilingual Explanations Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
+              
+              <!-- English Explanation -->
+              <div class="p-4 bg-white rounded-xl border border-slate-200/80 shadow-sm space-y-1.5">
+                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-700">
+                  <i class="fa-solid fa-circle-question"></i>
+                  <span>English Conceptual Analysis</span>
+                </div>
+                <p id="englishExplanation" class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal"></p>
+              </div>
+
+              <!-- Amharic Explanation -->
+              <div class="p-4 bg-amber-50/50 rounded-xl border border-amber-200/60 shadow-sm space-y-1.5">
+                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-800">
+                  <i class="fa-solid fa-language"></i>
+                  <span>ዝርዝር ማብራሪያ (በአማርኛ)</span>
+                </div>
+                <p id="amharicExplanation" class="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal"></p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- NAVIGATION CONTROL BAR -->
+        <div class="bg-slate-50 px-6 py-4 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <button id="prevBtn" class="px-4 py-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs sm:text-sm transition flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>Back</span>
+            </button>
+            <button id="skipBtn" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 font-medium text-xs sm:text-sm transition">
+              <i class="fa-solid fa-forward-step mr-1"></i> Skip / Jump Next
+            </button>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button id="nextBtn" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-black text-white font-semibold text-xs sm:text-sm transition flex items-center gap-2">
+              <span>Next</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button id="finalSubmitBtn" class="hidden px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/20 transition flex items-center gap-2">
+              <i class="fa-solid fa-flag-checkered"></i>
+              <span>Complete & Submit All</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Question Jump Drawer (Collapsible) -->
+      <div id="gridDrawer" class="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-600">Question Jump Matrix (1 to 60)</h3>
+          <div class="flex items-center gap-3 text-[11px] text-slate-500">
+            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> Correct</span>
+            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span> Incorrect</span>
+            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-slate-200 inline-block"></span> Pending</span>
+          </div>
+        </div>
+        <div id="gridBadgesContainer" class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-15 gap-1.5">
+          <!-- 60 dynamic jump pills -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- STEP 3: RESULTS & TEACHER NOTIFICATION DASHBOARD -->
+    <div id="resultsCard" class="hidden bg-white rounded-3xl shadow-xl border border-slate-200 p-6 sm:p-10 transition-all">
+      <div class="text-center max-w-xl mx-auto">
+        <div id="performanceBadgeIcon" class="w-20 h-20 rounded-full mx-auto flex items-center justify-center text-3xl font-extrabold shadow-lg mb-4">
+          <!-- Dynamic Trophy or Medal -->
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Assessment Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is the verified report for your Grade 8 Unit 3 Examination.</p>
+      </div>
+
+      <!-- Student Details & Key Metrics -->
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Student</span>
+          <p id="resStudentName" class="text-base font-bold text-slate-800 truncate mt-0.5"></p>
+          <p id="resStudentId" class="text-xs font-mono text-slate-500"></p>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Final Score</span>
+          <div class="flex items-baseline gap-1 mt-0.5">
+            <span id="resFinalScore" class="text-2xl font-black text-brand-700">0</span>
+            <span class="text-sm font-semibold text-slate-500">/ 60</span>
+          </div>
+          <span id="resScorePct" class="text-xs font-bold text-emerald-600">0%</span>
+        </div>
+
+        <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200">
+          <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider block">Correct Responses</span>
+          <p id="resCorrectNum" class="text-2xl font-black text-emerald-700 mt-0.5">0</p>
+          <span class="text-xs text-emerald-600">Accurately resolved</span>
+        </div>
+
+        <div class="bg-rose-50/70 p-4 rounded-2xl border border-rose-200">
+          <span class="text-xs font-bold text-rose-700 uppercase tracking-wider block">Incorrect / Incomplete</span>
+          <p id="resWrongNum" class="text-2xl font-black text-rose-700 mt-0.5">0</p>
+          <span class="text-xs text-rose-600">Needs conceptual review</span>
+        </div>
+      </div>
+
+      <!-- Teacher Transmission Action Section -->
+      <div class="mt-8 bg-gradient-to-br from-indigo-900 to-brand-900 rounded-2xl p-6 text-white shadow-xl">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div class="space-y-1.5 text-center lg:text-left">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/20 text-white">
+              <i class="fa-solid fa-paper-plane text-xs"></i> Official Teacher Dispatch
+            </span>
+            <h3 class="text-xl font-bold">Transmit Official Results to Teacher</h3>
+            <p class="text-xs sm:text-sm text-indigo-200 max-w-xl">
+              Forward your graded breakdown and official completion timestamp directly to Instructor Mesay Feredegn at <span class="font-mono underline text-white">mesayferedegn2@gmail.com</span>.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+            <button id="sendEmailBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-brand-900 font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Email Teacher (Pre-filled)</span>
+            </button>
+            <button id="copyReportBtn" class="w-full sm:w-auto px-4 py-3 rounded-xl bg-indigo-700/60 hover:bg-indigo-700 text-white font-medium text-sm border border-indigo-400/40 transition flex items-center justify-center gap-2">
+              <i class="fa-regular fa-copy"></i>
+              <span>Copy Score Digest</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Footer for Quiz Review -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200">
+        <button id="reviewAllAnswersBtn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Inspect All 60 Explanations</span>
+        </button>
+
+        <button id="retakeQuizBtn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-rotate-right"></i>
+          <span>Restart Assessment</span>
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- NOTIFICATION TOAST POPUP (ALERT REPLACEMENT) -->
+  <div id="toastNotification" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-slate-700 text-xs sm:text-sm pointer-events-none">
+    <i id="toastIcon" class="fa-solid fa-circle-info text-brand-400 text-base"></i>
+    <span id="toastMsg" class="font-medium">Notification message</span>
+  </div>
+
+  <!-- SCRIPT ARCHITECTURE -->
+  <script>
+    // --- 1. DATA REPOSITORY: 60 EXPLICIT FILL-IN-THE-BLANK ITEMS ---
+    const quizData = [
+      // Part 1: The Cartesian Coordinate System & Terminology (1 - 17)
+      {
+        id: 1,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["To determine the position of a point in a plane, we draw two intersecting perpendicular number lines called "],
+        blankCount: 1,
+        blankPlaceholders: ["e.g. axes or coordinate axes"],
+        acceptableAnswers: [
+          ["axes", "coordinate axes", "coordinate axis", "the axes", "the coordinate axes"]
+        ],
+        displayAnswer: "axes (or coordinate axes)",
+        explanationEn: "In analytic geometry, the position of any point on a flat plane is referenced by two mutually perpendicular number lines known collectively as coordinate axes.",
+        explanationAm: "በጠፍጣፋ ወለል ላይ የአንድን ነጥብ ቦታ ለመወሰን የምንጠቀምባቸው ሁለት እርስ በርሳቸው የተቆራረጡ ቀጥተኛ የቁጥር መስመሮች 'የመጋጠሚያ ዘንጎች' (coordinate axes) ይባላሉ።"
+      },
+      {
+        id: 2,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["In the Cartesian coordinate system, the horizontal number line is known as the ", ", while the vertical number line is known as the ", "."],
+        blankCount: 2,
+        blankPlaceholders: ["horizontal axis", "vertical axis"],
+        acceptableAnswers: [
+          ["x-axis", "x axis", "the x-axis", "the x axis"],
+          ["y-axis", "y axis", "the y-axis", "the y axis"]
+        ],
+        displayAnswer: "x-axis ; y-axis",
+        explanationEn: "By international convention in mathematics, the horizontal reference line is designated as the x-axis, and the vertical perpendicular reference line is designated as the y-axis.",
+        explanationAm: "በካርቴዚያን ስርዓት ውስጥ አግድሞሹ የቁጥር መስመር 'x-ዘንግ' (x-axis) ተብሎ ሲጠራ፣ ቋሚው የቁጥር መስመር ደግሞ 'y-ዘንግ' (y-axis) በመባል ይታወቃል።"
+      },
+      {
+        id: 3,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["The point of intersection of the horizontal and vertical coordinate axes is known as the ", ", and its coordinates are ", "."],
+        blankCount: 2,
+        blankPlaceholders: ["point name", "ordered pair"],
+        acceptableAnswers: [
+          ["origin", "the origin"],
+          ["(0, 0)", "(0,0)", "0, 0", "0,0"]
+        ],
+        displayAnswer: "origin ; (0, 0)",
+        explanationEn: "The intersection where both x and y scales register zero is called the origin, written as the ordered pair (0, 0).",
+        explanationAm: "አግድሞሹና ቋሚው ዘንጎች የሚቆራረጡበት ማዕከላዊ ነጥብ 'መነሻ' (origin) ይባላል፤ መጋጠሚያውም (0, 0) ነው።"
+      },
+      {
+        id: 4,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["The two perpendicular axes together determine a two-dimensional surface called the ", " coordinate plane."],
+        blankCount: 1,
+        blankPlaceholders: ["system name"],
+        acceptableAnswers: [
+          ["cartesian", "the cartesian"]
+        ],
+        displayAnswer: "Cartesian",
+        explanationEn: "Named in honor of French mathematician René Descartes, the flat 2D plane defined by two perpendicular axes is known as the Cartesian coordinate plane.",
+        explanationAm: "በፈረንሳዊው የሂሳብ ሊቅ ረኔ ዴካርት ስም የተሰየመው ይህ ባለ ሁለት አቅጣጫ ወለል 'የካርቴዚያን' (Cartesian) መጋጠሚያ ጠለል ተብሎ ይጠራል።"
+      },
+      {
+        id: 5,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["The position of any point in the coordinate plane is represented by a pair of numbers (x, y) known as an ", " pair."],
+        blankCount: 1,
+        blankPlaceholders: ["type of pair"],
+        acceptableAnswers: [
+          ["ordered", "ordered pair"]
+        ],
+        displayAnswer: "ordered",
+        explanationEn: "It is strictly called an ordered pair because the sequence matters: the horizontal position x always precedes the vertical position y.",
+        explanationAm: "ቅደም ተከተሉ አስፈላጊ በመሆኑ (ሁልጊዜም መጀመሪያ x ቀጥሎ y ስለሚጻፍ) ይህ ጥንድ 'ቅደም-ተከታይ ጥንድ' (ordered pair) ይባላል።"
+      },
+      {
+        id: 6,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["In the ordered pair (x, y), the first coordinate x is called the x-coordinate or ", ", and the second coordinate y is called the y-coordinate or ", "."],
+        blankCount: 2,
+        blankPlaceholders: ["x-term", "y-term"],
+        acceptableAnswers: [
+          ["abscissa", "the abscissa"],
+          ["ordinate", "the ordinate"]
+        ],
+        displayAnswer: "abscissa ; ordinate",
+        explanationEn: "The classical mathematical term for the x-coordinate is the abscissa, while the term for the vertical y-coordinate is the ordinate.",
+        explanationAm: "በሂሳብ ጥናት የመጀመሪያው መጋጠሚያ x 'አብሲሳ' (abscissa) ሲባል፣ ሁለተኛው መጋጠሚያ y ደግሞ 'ኦርዲኔት' (ordinate) በመባል ይጠራል።"
+      },
+      {
+        id: 7,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["The coordinate axes divide the Cartesian coordinate plane into four distinct regions called ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["name of 4 regions"],
+        acceptableAnswers: [
+          ["quadrants", "quadrant"]
+        ],
+        displayAnswer: "quadrants",
+        explanationEn: "The intersecting perpendicular axes partition the entire infinite coordinate plane into four quarters known as quadrants.",
+        explanationAm: "ዘንጎቹ አጠቃላይ ጠለሉን ለአራት እኩል ክፍሎች ይከፍሉታል፤ እነዚህም 'ሩቦች' ወይም 'ኳድራንቶች' (quadrants) ይባላሉ።"
+      },
+      {
+        id: 8,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["Quadrants are numbered I, II, III, and IV starting from the positive x-axis and proceeding in a(n) ", " (or counter-clockwise) direction."],
+        blankCount: 1,
+        blankPlaceholders: ["rotational direction"],
+        acceptableAnswers: [
+          ["anticlockwise", "anti-clockwise", "counterclockwise", "counter-clockwise"]
+        ],
+        displayAnswer: "anticlockwise",
+        explanationEn: "Quadrants are ordered standardly in an anticlockwise (counter-clockwise) rotation starting from the upper right region.",
+        explanationAm: "የሩቦቹ ቁጥር ከላይኛው ቀኝ ጀምሮ በሰዓት አቅጣጫ ተቃራኒ (anticlockwise ወይም counter-clockwise) አቅጣጫ I፣ II፣ III እና IV ተብለው ይሰየማሉ።"
+      },
+      {
+        id: 9,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["In Quadrant I, both coordinates are positive, which is represented by the sign pattern (", ", ", "), meaning x > 0 and y > 0."],
+        blankCount: 2,
+        blankPlaceholders: ["x-sign", "y-sign"],
+        acceptableAnswers: [
+          ["+", "positive", "+ve"],
+          ["+", "positive", "+ve"]
+        ],
+        displayAnswer: "(+, +)",
+        explanationEn: "In the first quadrant (upper-right), both horizontal distance x and vertical elevation y are positive (+, +).",
+        explanationAm: "በአንደኛው ሩብ (Quadrant I) ውስጥ ሁለቱም መጋጠሚያዎች አዎንታዊ (ፖዘቲቭ) ሲሆኑ፣ ምልክታቸውም (+, +) ይሆናል።"
+      },
+      {
+        id: 10,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["In Quadrant II, the sign pattern of any point is (", ", ", "), where x < 0 and y > 0."],
+        blankCount: 2,
+        blankPlaceholders: ["x-sign", "y-sign"],
+        acceptableAnswers: [
+          ["-", "negative", "-ve"],
+          ["+", "positive", "+ve"]
+        ],
+        displayAnswer: "(-, +)",
+        explanationEn: "In Quadrant II (upper-left), the x-coordinate lies to the left of the origin (negative) while y is above the origin (positive).",
+        explanationAm: "በሁለተኛው ሩብ (Quadrant II) ውስጥ x ከአመጣጡ በስተግራ (አሉታዊ) ሲሆን፣ y ደግሞ ከላይ (አዎንታዊ) በመሆኑ (-, +) ይሆናል።"
+      },
+      {
+        id: 11,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["In Quadrant III, both coordinates are negative, having the sign pattern (", ", ", "), where x < 0 and y < 0."],
+        blankCount: 2,
+        blankPlaceholders: ["x-sign", "y-sign"],
+        acceptableAnswers: [
+          ["-", "negative", "-ve"],
+          ["-", "negative", "-ve"]
+        ],
+        displayAnswer: "(-, -)",
+        explanationEn: "In Quadrant III (bottom-left), both x and y coordinates are less than zero, yielding (-, -).",
+        explanationAm: "በሦስተኛው ሩብ (Quadrant III) ውስጥ ሁለቱም መጋጠሚያዎች አሉታዊ (ኔጌቲቭ) በመሆናቸው ምልክታቸው (-, -) ነው።"
+      },
+      {
+        id: 12,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["In Quadrant IV, points have the sign pattern (", ", ", "), where x > 0 and y < 0."],
+        blankCount: 2,
+        blankPlaceholders: ["x-sign", "y-sign"],
+        acceptableAnswers: [
+          ["+", "positive", "+ve"],
+          ["-", "negative", "-ve"]
+        ],
+        displayAnswer: "(+, -)",
+        explanationEn: "In Quadrant IV (bottom-right), x is greater than zero (positive) and y is less than zero (negative).",
+        explanationAm: "በአራተኛው ሩብ (Quadrant IV) ውስጥ x አዎንታዊ ሲሆን y ደግሞ አሉታዊ በመሆኑ ምልክታቸው (+, -) ይሆናል።"
+      },
+      {
+        id: 13,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["A point located on one of the coordinate axes (such as (5, 0) or (0, -4)) lies in ", " quadrant."],
+        blankCount: 1,
+        blankPlaceholders: ["which quadrant?"],
+        acceptableAnswers: [
+          ["neither", "no", "none", "neither/no", "no quadrant", "neither quadrant"]
+        ],
+        displayAnswer: "neither (or no)",
+        explanationEn: "The axes serve as boundaries separating the quadrants. Therefore, any point sitting directly on an axis belongs to no quadrant.",
+        explanationAm: "ዘንጎቹ ሩቦችን የሚለዩ ወሰኖች በመሆናቸው በዘንግ ላይ የሚያርፍ ማንኛውም ነጥብ በየትኛውም ሩብ (quadrant) ውስጥ አይካተትም።"
+      },
+      {
+        id: 14,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["For any point lying on the x-axis, its y-coordinate (ordinate) is always equal to ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["value"],
+        acceptableAnswers: [
+          ["0", "zero"]
+        ],
+        displayAnswer: "0 (zero)",
+        explanationEn: "Every point on the horizontal x-axis has zero vertical displacement, meaning its ordinate y is always 0.",
+        explanationAm: "በአግድሞሹ x-ዘንግ ላይ ያለ ማንኛውም ነጥብ ወደ ላይም ሆነ ወደ ታች ስለማይንቀሳቀስ የ y ዋጋው ሁልጊዜ 0 (ዜሮ) ነው።"
+      },
+      {
+        id: 15,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["For any point lying on the y-axis, its x-coordinate (abscissa) is always equal to ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["value"],
+        acceptableAnswers: [
+          ["0", "zero"]
+        ],
+        displayAnswer: "0 (zero)",
+        explanationEn: "Any point located on the vertical y-axis has no horizontal displacement, meaning its abscissa x is identically 0.",
+        explanationAm: "በቋሚው y-ዘንግ ላይ የሚገኝ ማንኛውም ነጥብ ወደ ቀኝም ሆነ ወደ ግራ ባለመንቀሳቀሱ የ x ዋጋው ሁልጊዜ 0 (ዜሮ) ነው።"
+      },
+      {
+        id: 16,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["The point (2, 5) is located ", " units to the right of the y-axis and ", " units above the x-axis."],
+        blankCount: 2,
+        blankPlaceholders: ["units right", "units up"],
+        acceptableAnswers: [
+          ["2", "two"],
+          ["5", "five"]
+        ],
+        displayAnswer: "2 ; 5",
+        explanationEn: "For (x, y) = (2, 5), x = 2 dictates moving 2 units right from the y-axis, and y = 5 dictates moving 5 units upwards from the x-axis.",
+        explanationAm: "በነጥብ (2, 5) ውስጥ x = 2 የሚያሳየው ከ y-ዘንግ ወደ ቀኝ 2 እርምጃ መሄዱን ሲሆን፣ y = 5 ደግሞ ከ x-ዘንግ ወደ ላይ 5 እርምጃ መውጣቱን ያመለክታል።"
+      },
+      {
+        id: 17,
+        part: "Part 1: The Cartesian Coordinate System & Terminology",
+        partNum: 1,
+        segments: ["A point located 5 units to the left of the y-axis and 2 units above the x-axis has coordinates ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["(x, y) coordinates"],
+        acceptableAnswers: [
+          ["(-5, 2)", "(-5,2)", "-5, 2", "-5,2"]
+        ],
+        displayAnswer: "(-5, 2)",
+        explanationEn: "Moving 5 units left gives x = -5, and moving 2 units up gives y = 2, giving the ordered pair (-5, 2).",
+        explanationAm: "ከ y-ዘንግ ወደ ግራ 5 ማለት x = -5 ሲሆን፣ ከ x-ዘንግ ወደ ላይ 2 ማለት y = 2 ነው፤ ስለሆነም ነጥቡ (-5, 2) ይሆናል።"
+      },
+
+      // Part 2: Graphs of Linear Equations & Straight Lines (18 - 33)
+      {
+        id: 18,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["The method of graphing an equation by choosing values, finding corresponding pairs, and marking them on axes is called the ", " method."],
+        blankCount: 1,
+        blankPlaceholders: ["graphing method"],
+        acceptableAnswers: [
+          ["point plotting", "plotting points", "point-plotting", "table of values", "plotting", "point plot"]
+        ],
+        displayAnswer: "point plotting (or plotting points)",
+        explanationEn: "Creating a table of values, finding corresponding (x, y) values, and placing dots on the coordinate grid is known as point plotting.",
+        explanationAm: "ዋጋዎችን መርጦ ተዛማጅ የ x እና y ጥንዶችን ካገኙ በኋላ ጠለል ላይ ነጥቦችን በማስቀመጥ መስመር የመስራት ዘዴ 'point plotting' (ነጥብ የማስቀመጥ ዘዴ) ይባላል።"
+      },
+      {
+        id: 19,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["The equation of the x-axis is ", ", while the equation of the y-axis is ", "."],
+        blankCount: 2,
+        blankPlaceholders: ["eq of x-axis", "eq of y-axis"],
+        acceptableAnswers: [
+          ["y = 0", "y=0"],
+          ["x = 0", "x=0"]
+        ],
+        displayAnswer: "y = 0 ; x = 0",
+        explanationEn: "On the x-axis, all ordinates are zero, so its equation is y = 0. On the y-axis, all abscissas are zero, so its equation is x = 0.",
+        explanationAm: "በ x-ዘንግ ላይ የ y ዋጋ ሁሌም ዜሮ ስለሆነ እኩልታው y = 0 ነው፤ በተመሳሳይ በ y-ዘንግ ላይ የ x ዋጋ ዜሮ በመሆኑ እኩልታው x = 0 ነው።"
+      },
+      {
+        id: 20,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["A line in which all points have the same constant x-coordinate has an equation of the form x = a; this line is a ", " line."],
+        blankCount: 1,
+        blankPlaceholders: ["orientation"],
+        acceptableAnswers: [
+          ["vertical", "vertical line"]
+        ],
+        displayAnswer: "vertical",
+        explanationEn: "An equation of the form x = a has a fixed horizontal position and extends infinitely up and down, making it a vertical line.",
+        explanationAm: "የ x ዋጋ ቋሚ የሆነበት እና x = a በሚል መልክ የሚገለጽ ቀጥተኛ መስመር ሁልጊዜም 'ቋሚ መስመር' (vertical line) ነው።"
+      },
+      {
+        id: 21,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["The vertical line x = a is ", " to the y-axis and ", " to the x-axis."],
+        blankCount: 2,
+        blankPlaceholders: ["relationship to y-axis", "relationship to x-axis"],
+        acceptableAnswers: [
+          ["parallel"],
+          ["perpendicular"]
+        ],
+        displayAnswer: "parallel ; perpendicular",
+        explanationEn: "A vertical line x = a runs in the exact same orientation as the vertical y-axis (parallel) and crosses the horizontal x-axis at a 90° angle (perpendicular).",
+        explanationAm: "ቋሚው መስመር x = a ከ y-ዘንግ ጋር 'ትይዩ' (parallel) ሲሆን፣ ከአግድሞሹ x-ዘንግ ጋር ደግሞ 'ቀጤ-ነክ' (perpendicular) ነው።"
+      },
+      {
+        id: 22,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["A line in which all points have the same constant y-coordinate has an equation of the form y = b; this line is a ", " line."],
+        blankCount: 1,
+        blankPlaceholders: ["orientation"],
+        acceptableAnswers: [
+          ["horizontal", "horizontal line"]
+        ],
+        displayAnswer: "horizontal",
+        explanationEn: "An equation y = b maintains constant height everywhere and extends infinitely left and right, creating a horizontal line.",
+        explanationAm: "የ y ዋጋ ቋሚ የሆነበት እና y = b በሚል መልክ የሚጻፍ መስመር ሁልጊዜ 'አግድም መስመር' (horizontal line) ነው።"
+      },
+      {
+        id: 23,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["The horizontal line y = b is ", " to the x-axis and ", " to the y-axis."],
+        blankCount: 2,
+        blankPlaceholders: ["relationship to x-axis", "relationship to y-axis"],
+        acceptableAnswers: [
+          ["parallel"],
+          ["perpendicular"]
+        ],
+        displayAnswer: "parallel ; perpendicular",
+        explanationEn: "The horizontal line y = b runs parallel to the horizontal x-axis and forms a 90° right angle (perpendicular) with the vertical y-axis.",
+        explanationAm: "አግድም መስመር y = b ከ x-ዘንግ ጋር 'ትይዩ' (parallel) ሲሆን፣ ከቋሚው y-ዘንግ ጋር ደግሞ 'ቀጤ-ነክ' (perpendicular) ነው።"
+      },
+      {
+        id: 24,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["The graph of an equation in x and y is the set of all points (x, y) in the coordinate plane that ", " the equation."],
+        blankCount: 1,
+        blankPlaceholders: ["verb"],
+        acceptableAnswers: [
+          ["satisfy", "satisfies", "make true", "solve"]
+        ],
+        displayAnswer: "satisfy",
+        explanationEn: "A point is on a graph if and only if substituting its coordinates into the algebraic equation makes both sides evaluate equally (satisfies it).",
+        explanationAm: "የአንድ እኩልታ ግራፍ ማለት እኩልታውን እውነት የሚያደርጉ (የሚያረኩ / satisfy የሚያደርጉ) የሁሉም ነጥቦች (x, y) ስብስብ ነው።"
+      },
+      {
+        id: 25,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["Every point lying on a given line is a ", " of the equation of that line, and conversely, every solution of the equation is a ", " on the line."],
+        blankCount: 2,
+        blankPlaceholders: ["algebraic term", "geometric term"],
+        acceptableAnswers: [
+          ["solution", "a solution"],
+          ["point", "a point"]
+        ],
+        displayAnswer: "solution ; point",
+        explanationEn: "There is an exact one-to-one equivalence between the geometric points on a line and the algebraic solutions of its linear equation.",
+        explanationAm: "በመስመሩ ላይ ያለ ማንኛውም ነጥብ የእኩልታው 'መፍትሔ' (solution) ሲሆን፣ በተቃራኒው የእኩልታው ማንኛውም መፍትሔ በመስመሩ ላይ የሚያርፍ 'ነጥብ' (point) ነው።"
+      },
+      {
+        id: 26,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["The graph of a linear equation of the form y = mx (where m ∈ Q, m ≠ 0) is a straight line that always passes through the ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["key coordinate point"],
+        acceptableAnswers: [
+          ["origin", "the origin", "(0, 0)", "(0,0)", "origin (0, 0)", "origin (0,0)"]
+        ],
+        displayAnswer: "origin (0, 0)",
+        explanationEn: "When x = 0 in y = mx, y = m(0) = 0. Therefore, every direct variation equation y = mx without a constant term must pass through the origin (0, 0).",
+        explanationAm: "በ y = mx እኩልታ ውስጥ x = 0 ሲሆን y = 0 ስለሚሆን፣ ይህ ቀጥተኛ መስመር ሁልጊዜም በመሃሉ 'መነሻ' ወይም (0, 0) ላይ ያልፋል።"
+      },
+      {
+        id: 27,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["In the equation of a straight line y = mx, the constant coefficient m represents the ", " of the line."],
+        blankCount: 1,
+        blankPlaceholders: ["rate of inclination"],
+        acceptableAnswers: [
+          ["slope", "gradient", "the slope", "the gradient", "slope (gradient)"]
+        ],
+        displayAnswer: "slope (gradient)",
+        explanationEn: "The parameter m represents the slope (or gradient), measuring the steepness and direction of the straight line (rise over run).",
+        explanationAm: "በቀጥተኛ መስመር እኩልታ y = mx ውስጥ ቋሚው ቁጥር m የመስመሩ 'ቁልቁለት' ወይም 'ስሎፕ' (slope / gradient) በመባል ይጠራል።"
+      },
+      {
+        id: 28,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["For the line y = mx (m ≠ 0), if m > 0, the line rises from left to right and passes through Quadrants ", " and ", "."],
+        blankCount: 2,
+        blankPlaceholders: ["first quad", "second quad"],
+        acceptableAnswers: [
+          ["I", "1", "one", "first", "quadrant I"],
+          ["III", "3", "three", "third", "quadrant III"]
+        ],
+        displayAnswer: "I ; III",
+        explanationEn: "A positive slope (m > 0) means y and x have identical signs. When x > 0, y > 0 (Quadrant I); when x < 0, y < 0 (Quadrant III).",
+        explanationAm: "ስሎፑ ፖዘቲቭ (m > 0) ሲሆን መስመሩ ከግራ ወደ ቀኝ ወደ ላይ እየወጣ በሩብ I እና በሩብ III ውስጥ ያልፋል።"
+      },
+      {
+        id: 29,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["For the line y = mx (m ≠ 0), if m < 0, the line falls from left to right and passes through Quadrants ", " and ", "."],
+        blankCount: 2,
+        blankPlaceholders: ["first quad", "second quad"],
+        acceptableAnswers: [
+          ["II", "2", "two", "second", "quadrant II"],
+          ["IV", "4", "four", "fourth", "quadrant IV"]
+        ],
+        displayAnswer: "II ; IV",
+        explanationEn: "A negative slope (m < 0) means y and x have opposite signs. Thus, the line extends through Quadrant II and Quadrant IV.",
+        explanationAm: "ስሎፑ ኔጌቲቭ (m < 0) ከሆነ መስመሩ ከግራ ወደ ቀኝ ወደ ታች እያዘቀዘቀ በሩብ II እና በሩብ IV ውስጥ ያልፋል።"
+      },
+      {
+        id: 30,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["In order to draw a straight line uniquely on a coordinate plane, you need to determine at least ", " distinct points."],
+        blankCount: 1,
+        blankPlaceholders: ["minimum number"],
+        acceptableAnswers: [
+          ["two", "2", "two (2)"]
+        ],
+        displayAnswer: "two (2)",
+        explanationEn: "By geometric axioms, exactly one unique straight line passes through any two distinct points in a plane.",
+        explanationAm: "በጂኦሜትሪ ህግ መሰረት ማንኛውንም ቀጥተኛ መስመር በጠለል ላይ ለይቶ ለመሳል ቢያንስ 'ሁለት' (2) የተለያዩ ነጥቦች ያስፈልጋሉ።"
+      },
+      {
+        id: 31,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["In the linear equation y = mx + c, the constant term c represents the ", ", which is the point where the line crosses the y-axis at (0, c)."],
+        blankCount: 1,
+        blankPlaceholders: ["intercept name"],
+        acceptableAnswers: [
+          ["y-intercept", "y intercept", "the y-intercept", "y - intercept"]
+        ],
+        displayAnswer: "y-intercept",
+        explanationEn: "In the slope-intercept form y = mx + c, the constant c is the y-intercept, indicating where the line intersects the vertical y-axis.",
+        explanationAm: "በ y = mx + c እኩልታ ውስጥ ቋሚው c መስመሩ የ y-ዘንግን የሚቆርጥበት ነጥብ በመሆኑ 'y-ኢንተርሴፕት' (y-intercept) ይባላል።"
+      },
+      {
+        id: 32,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["To verify whether an ordered pair is a solution to a linear equation, we ", " the x and y values into the equation to check if both sides are equal."],
+        blankCount: 1,
+        blankPlaceholders: ["action verb"],
+        acceptableAnswers: [
+          ["substitute", "replace", "plug", "plug in", "insert"]
+        ],
+        displayAnswer: "substitute",
+        explanationEn: "Substitution is the algebraic process of replacing the variables x and y with given numbers to test if the equality holds true.",
+        explanationAm: "የተሰጠን ነጥብ የእኩልታው መፍትሄ መሆኑን ለማረጋገጥ የተሰጡትን የ x እና y ዋጋዎች በእኩልታው ውስጥ 'መተካት' (substitute ማድረግ) አለብን።"
+      },
+      {
+        id: 33,
+        part: "Part 2: Graphs of Linear Equations & Straight Lines",
+        partNum: 2,
+        segments: ["The point where two distinct non-parallel lines cross each other on the Cartesian coordinate plane is called their ", " point."],
+        blankCount: 1,
+        blankPlaceholders: ["crossing point"],
+        acceptableAnswers: [
+          ["intersection", "point of intersection", "intersecting"]
+        ],
+        displayAnswer: "intersection",
+        explanationEn: "The single common point shared by two non-parallel straight lines is called the point of intersection.",
+        explanationAm: "ሁለት የማይመሳሰሉ እና የማይይዩ ቀጥተኛ መስመሮች እርስ በርስ የሚቆራረጡበት ነጥብ 'የመቆራረጫ ነጥብ' (intersection point) ይባላል።"
+      },
+
+      // Part 3: Linear Inequalities & Rules of Transformation (34 - 49)
+      {
+        id: 34,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["A mathematical sentence which contains one of the relation signs <, >, ≤, ≥, or ≠ is called a(n) ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["type of statement"],
+        acceptableAnswers: [
+          ["inequality", "an inequality"]
+        ],
+        displayAnswer: "inequality",
+        explanationEn: "Statements joined by relation symbols (<, >, ≤, ≥, ≠) expressing order or difference rather than exact equality are called inequalities.",
+        explanationAm: "ከእኩልታ ይልቅ እንደ <፣ >፣ ≤፣ ≥ ወይም ≠ ያሉ የማያዛምዱ ምልክቶችን የያዘ የሂሳብ አረፍተ ነገር 'አለመብለጥ/አለመተካከል' ወይም 'ኢንኢኳሊቲ' (inequality) ይባላል።"
+      },
+      {
+        id: 35,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["A linear inequality in one variable x is an inequality that can be written in the form ax + b < 0, ax + b ≤ 0, ax + b > 0, or ax + b ≥ 0, where a and b are rational numbers and a ", " 0."],
+        blankCount: 1,
+        blankPlaceholders: ["symbol or words"],
+        acceptableAnswers: [
+          ["≠", "!=", "not equal to", "is not equal to", "≠ (not equal to)"]
+        ],
+        displayAnswer: "≠ (not equal to)",
+        explanationEn: "If the leading coefficient a were 0, the variable x would vanish entirely, reducing the expression to a constant statement without a variable.",
+        explanationAm: "የ x ተቀፅላ a ዜሮ ከሆነ ተለዋዋጩ ስለሚጠፋ መስመራዊ ኢንኢኳሊቲ ለመሆን የግድ a ≠ 0 (ከዜሮ የተለየ) መሆን አለበት።"
+      },
+      {
+        id: 36,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["The specific numbers from the replacement set (or domain) that make an inequality a true mathematical statement are called the ", " of the inequality."],
+        blankCount: 1,
+        blankPlaceholders: ["term for correct values"],
+        acceptableAnswers: [
+          ["solutions", "solution", "the solutions", "the solution"]
+        ],
+        displayAnswer: "solutions (or solution)",
+        explanationEn: "Any specific value that renders the inequality statement true upon substitution is defined as a solution.",
+        explanationAm: "ከተሰጠው የቁጥር ክልል ውስጥ ኢንኢኳሊቲውን እውነት የሚያደርጉ ማንኛቸውም ቁጥሮች የኢንኢኳሊቲው 'መፍትሔዎች' (solutions) ይባላሉ።"
+      },
+      {
+        id: 37,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["The set of all solutions of an inequality is known as its ", " set."],
+        blankCount: 1,
+        blankPlaceholders: ["set name"],
+        acceptableAnswers: [
+          ["solution", "solution set"]
+        ],
+        displayAnswer: "solution",
+        explanationEn: "The collection grouping every valid individual solution together is called the solution set of that inequality.",
+        explanationAm: "ሁሉንም እውነት የሚያደርጉ መፍትሔዎች በአንድነት የያዘ ስብስብ 'የመፍትሔ ስብስብ' (solution set) በመባል ይጠራል።"
+      },
+      {
+        id: 38,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["Two inequalities that have exactly the same solution set are called ", " inequalities."],
+        blankCount: 1,
+        blankPlaceholders: ["relationship name"],
+        acceptableAnswers: [
+          ["equivalent", "equivalent inequalities"]
+        ],
+        displayAnswer: "equivalent",
+        explanationEn: "If two separate inequality expressions yield identical solution sets across the domain, they are formally termed equivalent inequalities.",
+        explanationAm: "ተመሳሳይ ወይም አንድ አይነት የመፍትሔ ስብስብ ያላቸው ሁለት የተለያዩ ኢንኢኳሊቲዎች 'አቻ ኢንኢኳሊቲዎች' (equivalent inequalities) ይባላሉ።"
+      },
+      {
+        id: 39,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["The systematic process of solving inequalities by converting them step-by-step into simpler forms is known as ", " transformations."],
+        blankCount: 1,
+        blankPlaceholders: ["transformation type"],
+        acceptableAnswers: [
+          ["equivalent", "inequality"]
+        ],
+        displayAnswer: "equivalent",
+        explanationEn: "Step-by-step valid algebraic operations that preserve the identical solution set are known as equivalent transformations.",
+        explanationAm: "የመፍትሔ ስብስቡ ሳይቀየር ኢንኢኳሊቲውን ደረጃ በደረጃ ቀለል ወዳለ አቻ ቅርጽ የመቀየር ሂደት 'Equivalent transformations' ይባላል።"
+      },
+      {
+        id: 40,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["Rule 1: If the same number is added to or subtracted from both sides of an inequality, the direction of the inequality remains ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["condition"],
+        acceptableAnswers: [
+          ["unchanged", "the same", "unchanged (the same)", "same", "constant"]
+        ],
+        displayAnswer: "unchanged (the same)",
+        explanationEn: "Adding or subtracting the exact same quantity shifts both sides equally along the number line, preserving the original inequality sign direction.",
+        explanationAm: "በኢንኢኳሊቲ በሁለቱም በኩል እኩል ቁጥር ቢደመር ወይም ቢቀነስ የምልክቱ አቅጣጫ ሳይለወጥ 'እንደነበረ' (unchanged) ይቆያል።"
+      },
+      {
+        id: 41,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["Algebraically, for rational numbers a, b, and c: if a < b, then a + c < b + c, and a - c ", " b - c."],
+        blankCount: 1,
+        blankPlaceholders: ["relation symbol"],
+        acceptableAnswers: [
+          ["<", "< b - c", "less than"]
+        ],
+        displayAnswer: "< b - c",
+        explanationEn: "Subtracting c from both sides retains the original '<' order, meaning a - c < b - c.",
+        explanationAm: "ከሁለቱም በኩል c ሲቀነስ የምልክቱ አቅጣጫ አይለወጥም፤ ስለዚህ a - c < b - c ይሆናል።"
+      },
+      {
+        id: 42,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["Rule 2: If both sides of an inequality are multiplied or divided by the same positive number (c > 0), the direction of the inequality is ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["condition"],
+        acceptableAnswers: [
+          ["unchanged", "the same", "preserved", "maintained"]
+        ],
+        displayAnswer: "unchanged",
+        explanationEn: "Multiplying or dividing by positive factors preserves numerical order, meaning the inequality orientation remains unchanged.",
+        explanationAm: "የኢንኢኳሊቲ ሁለቱም ወገኖች በአዎንታዊ (ፖዘቲቭ) ቁጥር ሲባዙ ወይም ሲካፈሉ የምልክቱ አቅጣጫ 'አይቀየርም' (unchanged)።"
+      },
+      {
+        id: 43,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["Algebraically, if a < b and c > 0, then ac < bc, and a/c ", " b/c."],
+        blankCount: 1,
+        blankPlaceholders: ["relation symbol"],
+        acceptableAnswers: [
+          ["<", "less than"]
+        ],
+        displayAnswer: "<",
+        explanationEn: "Since c is strictly positive, division preserves order: a/c < b/c.",
+        explanationAm: "ቁጥር c ፖዘቲቭ (c > 0) እስከሆነ ድረስ ሁለቱንም ለ c ስናካፍል ምልክቱ ሳይቀየር a/c < b/c ሆኖ ይቀጥላል።"
+      },
+      {
+        id: 44,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["Rule 3: If both sides of an inequality are multiplied or divided by the same negative number (c < 0), the direction of the inequality is ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["action on symbol"],
+        acceptableAnswers: [
+          ["reversed", "flipped", "reversed (flipped)", "changed", "inverted"]
+        ],
+        displayAnswer: "reversed (flipped)",
+        explanationEn: "Crucial rule: Multiplying or dividing by a negative value reverses the order of numbers on the number line, so the inequality sign flips.",
+        explanationAm: "በጣም ወሳኝ ህግ፡ ሁለቱም ወገኖች በአሉታዊ (ኔጌቲቭ) ቁጥር ከተባዙ ወይም ከተካፈሉ የኢንኢኳሊቲው ምልክት 'ይቀለበሳል' (reversed/flipped ይሆናል)።"
+      },
+      {
+        id: 45,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["Algebraically, if a < b and c < 0, then ac ", " bc, and a/c ", " b/c."],
+        blankCount: 2,
+        blankPlaceholders: ["symbol", "symbol"],
+        acceptableAnswers: [
+          [">", "greater than"],
+          [">", "greater than"]
+        ],
+        displayAnswer: "> ; >",
+        explanationEn: "Because c is strictly negative, the original '<' is reversed to '>' in both operations: ac > bc and a/c > b/c.",
+        explanationAm: "ቁጥር c አሉታዊ (c < 0) በመሆኑ መጀመሪያ የነበረው '<' ምልክት ተገልብጦ ac > bc እንዲሁም a/c > b/c ይሆናል።"
+      },
+      {
+        id: 46,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["If multiplying both sides of -3x > 12 by -1/3, the resulting inequality is x ", " -4."],
+        blankCount: 1,
+        blankPlaceholders: ["symbol"],
+        acceptableAnswers: [
+          ["<", "< -4", "less than"]
+        ],
+        displayAnswer: "<",
+        explanationEn: "Multiplying by the negative fraction (-1/3) flips the '>' sign to '<'. Hence x < -4.",
+        explanationAm: "ሁለቱንም በኔጌቲቭ (-1/3) ስናባዛ '>' ወደ '<' ስለሚቀለበስ ውጤቱ x < -4 ይሆናል።"
+      },
+      {
+        id: 47,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["If an inequality transformation leads to a statement that is always true (e.g., 0 < 3), then ", " element of the domain is a solution."],
+        blankCount: 1,
+        blankPlaceholders: ["scope of solutions"],
+        acceptableAnswers: [
+          ["every", "all", "every (all)", "any"]
+        ],
+        displayAnswer: "every (all)",
+        explanationEn: "An identity like 0 < 3 is universally true regardless of the variable's value, so every element in the domain is a solution.",
+        explanationAm: "ሂደቱ ሁልጊዜ እውነት የሆነ አረፍተ ነገር (ለምሳሌ 0 < 3) የሚያስገኝ ከሆነ፣ በዶሜኑ ውስጥ የሚገኝ 'ማንኛውም/ሁሉም' (every/all) ቁጥር መፍትሔ ነው።"
+      },
+      {
+        id: 48,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["If an inequality transformation leads to a statement that is always false (e.g., 5 < 2), then the inequality has ", " solution in the given domain."],
+        blankCount: 1,
+        blankPlaceholders: ["quantity of solutions"],
+        acceptableAnswers: [
+          ["no", "empty", "no (empty)", "zero", "none", "null"]
+        ],
+        displayAnswer: "no (empty)",
+        explanationEn: "When a false contradiction like 5 < 2 is reached, no numerical value can ever satisfy the inequality, so there is no solution (the empty set ∅).",
+        explanationAm: "የተገኘው ውጤት ፈጽሞ ውሸት (ለምሳሌ 5 < 2) ከሆነ፣ ኢንኢኳሊቲውን የሚያረካ አንዳችም ቁጥር ስለሌለ 'ምንም' (no/empty) መፍትሔ የለውም።"
+      },
+      {
+        id: 49,
+        part: "Part 3: Linear Inequalities & Rules of Transformation",
+        partNum: 3,
+        segments: ["On a number line graph, an open circle indicates that the endpoint is ", " from the solution set, whereas a solid dot indicates that the endpoint is ", "."],
+        blankCount: 2,
+        blankPlaceholders: ["circle meaning", "solid dot meaning"],
+        acceptableAnswers: [
+          ["excluded", "not included"],
+          ["included", "part of"]
+        ],
+        displayAnswer: "excluded ; included",
+        explanationEn: "On a 1D number line, an open circle denotes strict bounds (< or >) excluding the number, while a solid shaded circle denotes inclusion (≤ or ≥).",
+        explanationAm: "በቁጥር መስመር ላይ ክፍት ክብ ወሰኑ 'እንደማይካተት' (excluded) ሲያመለክት፣ ደማቅ ጠጣር ነጥብ ደግሞ ወሰኑ 'እንደሚካተት' (included) ያሳያል።"
+      },
+
+      // Part 4: Algebraic Translations & Real-Life Applications (50 - 60)
+      {
+        id: 50,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["To solve a real-life word problem mathematically, we first translate the verbal sentences into a(n) ", " statement."],
+        blankCount: 1,
+        blankPlaceholders: ["form of statement"],
+        acceptableAnswers: [
+          ["mathematical", "algebraic", "mathematical (or algebraic)", "algebraic statement", "mathematical statement"]
+        ],
+        displayAnswer: "mathematical (or algebraic)",
+        explanationEn: "Word problem modeling begins by converting verbal language into precise mathematical symbols and algebraic relations.",
+        explanationAm: "የቃላት የሂሳብ ቅጾችን ለመፍታት በመጀመሪያ ቃላቱን ወደ 'ሂሳባዊ' ወይም 'አልጀብራዊ' (mathematical/algebraic) አረፍተ ነገር እንቀይራለን።"
+      },
+      {
+        id: 51,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["The verbal phrase 'x is at least a' is translated symbolically into the inequality ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["symbolic form"],
+        acceptableAnswers: [
+          ["x >= a", "x ≥ a", "x>=a", "x≥a"]
+        ],
+        displayAnswer: "x ≥ a",
+        explanationEn: "'At least a' means that the value can be equal to a or greater than a, giving x ≥ a.",
+        explanationAm: "'x ቢያንስ a ነው' ማለት የ x ዋጋ ከ a እኩል ወይም ከ a የበለጠ ሊሆን ይችላል ማለት ስለሆነ x ≥ a ተብሎ ይጻፋል።"
+      },
+      {
+        id: 52,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["The verbal phrase 'x is not less than a' is translated symbolically into the inequality ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["symbolic form"],
+        acceptableAnswers: [
+          ["x >= a", "x ≥ a", "x>=a", "x≥a"]
+        ],
+        displayAnswer: "x ≥ a",
+        explanationEn: "If x is not strictly less than a, it must be greater than or equal to a: x ≥ a.",
+        explanationAm: "'x ከ a አያንስም' ማለት x ከ a እኩል ወይም የበለጠ ነው ማለት ስለሆነ x ≥ a ተብሎ ይተረጎማል።"
+      },
+      {
+        id: 53,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["The verbal phrase 'x is at most a' is translated symbolically into the inequality ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["symbolic form"],
+        acceptableAnswers: [
+          ["x <= a", "x ≤ a", "x<=a", "x≤a"]
+        ],
+        displayAnswer: "x ≤ a",
+        explanationEn: "'At most a' sets an upper cap, meaning x cannot exceed a, yielding x ≤ a.",
+        explanationAm: "'x ቢበዛ a ነው' ማለት ከ a መብለጥ ስለማይችል ከፍተኛው ጣሪያ a ነው፤ ስለሆነም x ≤ a ይሆናል።"
+      },
+      {
+        id: 54,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["The verbal phrase 'x is no more than a' (or 'not more than a') is translated symbolically into the inequality ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["symbolic form"],
+        acceptableAnswers: [
+          ["x <= a", "x ≤ a", "x<=a", "x≤a"]
+        ],
+        displayAnswer: "x ≤ a",
+        explanationEn: "'No more than a' signifies that x can be equal to a or less than a: x ≤ a.",
+        explanationAm: "'x ከ a አይበልጥም' ማለት x ከ a ሊያንስ ወይም እኩል ሊሆን ይችላል እንጂ አይበልጥም ማለት ስለሆነ x ≤ a ነው።"
+      },
+      {
+        id: 55,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["The verbal phrase 'a number decreased by five' is written algebraically as ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["expression (use x or n)"],
+        acceptableAnswers: [
+          ["x - 5", "x-5", "n - 5", "n-5"]
+        ],
+        displayAnswer: "x - 5",
+        explanationEn: "'Decreased by five' represents subtracting 5 from an unknown variable quantity x, giving x - 5.",
+        explanationAm: "'አንድ ቁጥር በአምስት ሲቀነስ' ማለት ካልታወቀው ቁጥር x ላይ 5 መቀነስን ስለሚያመለክት x - 5 ተብሎ ይጻፋል።"
+      },
+      {
+        id: 56,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["The verbal phrase 'the quotient of a number x and nine' is written algebraically as ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["expression"],
+        acceptableAnswers: [
+          ["x / 9", "x/9", "x ÷ 9"]
+        ],
+        displayAnswer: "x / 9",
+        explanationEn: "In mathematics, 'quotient' represents division; hence the quotient of x and 9 is x / 9.",
+        explanationAm: "'የአንድ ቁጥር x እና የዘጠኝ ድርሻ' ማለት የ x ለ 9 ማካፈልን የሚያሳይ ስለሆነ x / 9 ተብሎ ይጻፋል።"
+      },
+      {
+        id: 57,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["The phrase 'three times a number exceeds twenty-nine' translates to the inequality ", "."],
+        blankCount: 1,
+        blankPlaceholders: ["inequality (use x)"],
+        acceptableAnswers: [
+          ["3x > 29", "3x>29", "3*x > 29", "3n > 29"]
+        ],
+        displayAnswer: "3x > 29",
+        explanationEn: "'Three times a number' is 3x, and 'exceeds' denotes strictly greater than (>), so 3x > 29.",
+        explanationAm: "'የአንድ ቁጥር ሦስት እጥፍ ከሃያ ዘጠኝ ይበልጣል' ማለት 3x ከ 29 ይበልጣል ስለሆነ 3x > 29 ተብሎ ይተረጎማል።"
+      },
+      {
+        id: 58,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["The conversion formula connecting Celsius (C) and Fahrenheit (F) temperatures is given by C = ", " or F = ", "."],
+        blankCount: 2,
+        blankPlaceholders: ["C formula", "F formula"],
+        acceptableAnswers: [
+          ["5/9(f - 32)", "5/9*(f - 32)", "5/9(f-32)", "5/9 * (f - 32)", "(5/9)(f - 32)", "(5*(f - 32))/9", "5/9(F - 32)"],
+          ["9/5 c + 32", "9/5*c + 32", "9/5c + 32", "9/5c+32", "(9/5)c + 32", "(9/5)*c + 32", "9/5 C + 32"]
+        ],
+        displayAnswer: "5/9(F - 32) ; 9/5 C + 32",
+        explanationEn: "The standard linear thermodynamic temperature conversions are C = 5/9(F - 32) and F = 9/5 C + 32.",
+        explanationAm: "የሴልሺየስ እና ፋራናይት የሙቀት ልወጣ ቀመሮች C = 5/9(F - 32) እንዲሁም F = 9/5 C + 32 ናቸው።"
+      },
+      {
+        id: 59,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["If the cost of an event must not exceed a budget B, the inequality relationship representing total cost C is C ", " B."],
+        blankCount: 1,
+        blankPlaceholders: ["symbol"],
+        acceptableAnswers: [
+          ["<=", "≤", "<= B", "≤ B", "less than or equal to"]
+        ],
+        displayAnswer: "≤",
+        explanationEn: "'Must not exceed' means the total cost C must be less than or equal to the budget cap B: C ≤ B.",
+        explanationAm: "አጠቃላይ ወጪ C ከተፈቀደው በጀት B መብለጥ የለበትም ማለት ወጪው ከበጀቱ ጋር እኩል ወይም ከዚያ ማነስ አለበት፤ ስለሆነም C ≤ B ይሆናል።"
+      },
+      {
+        id: 60,
+        part: "Part 4: Algebraic Translations & Real-Life Applications",
+        partNum: 4,
+        segments: ["Two consecutive integers can be represented algebraically as x and ", ", while two consecutive even (or odd) integers are represented as x and ", "."],
+        blankCount: 2,
+        blankPlaceholders: ["next integer", "next even/odd"],
+        acceptableAnswers: [
+          ["x + 1", "x+1", "1 + x"],
+          ["x + 2", "x+2", "2 + x"]
+        ],
+        displayAnswer: "x + 1 ; x + 2",
+        explanationEn: "Consecutive integers increment by 1 (x, x + 1). Consecutive even or odd numbers increment in steps of 2 (x, x + 2).",
+        explanationAm: "ተከታታይ ሙሉ ቁጥሮች በ 1 ልዩነት ስለሚጨምሩ x እና x + 1 ሲሆኑ፣ ተከታታይ ጥንድ ወይም ነጠላ ቁጥሮች ደግሞ በ 2 ስለሚለያዩ x እና x + 2 ተብለው ይወከላሉ።"
+      }
+    ];
+
+    // --- 2. GLOBAL STATE TRACKING ---
+    let studentInfo = {
+      name: "",
+      id: "",
+      startTime: null,
+      endTime: null
+    };
+
+    let currentIndex = 0; // 0 to 59
+    let userResponses = new Array(60).fill(null); // stores { userInputs: [], isCorrect: bool, timestamp }
+    let isTtsEnabled = true;
+
+    // --- 3. SPEECH SYNTHESIS ENGINE (BRITISH WOMAN NARRATOR) ---
+    let britishFemaleVoice = null;
+
+    function initSpeechSynthesis() {
+      if (!('speechSynthesis' in window)) {
+        document.getElementById('ttsToggleBtn').style.display = 'none';
+        return;
+      }
+
+      function loadVoices() {
+        const voices = window.speechSynthesis.getVoices();
+        // Look for British English female voice
+        britishFemaleVoice = voices.find(v => 
+          (v.lang === 'en-GB' || v.lang === 'en_GB') && 
+          (v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('victoria') || v.name.toLowerCase().includes('sonia') || v.name.toLowerCase().includes('libby') || v.name.toLowerCase().includes('serena') || v.name.toLowerCase().includes('google uk english female'))
+        ) || voices.find(v => v.lang === 'en-GB' || v.lang === 'en_GB') || voices.find(v => v.lang.startsWith('en'));
+      }
+
+      loadVoices();
+      if (speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = loadVoices;
+      }
+    }
+
+    function speakText(text) {
+      if (!isTtsEnabled || !('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel(); // Stop any pending utterance
+
+      // Clean mathematical notations for spoken clarity
+      let cleanText = text
+        .replace(/\(/g, " open parenthesis ")
+        .replace(/\)/g, " close parenthesis ")
+        .replace(/≤/g, " is less than or equal to ")
+        .replace(/≥/g, " is greater than or equal to ")
+        .replace(/≠/g, " is not equal to ")
+        .replace(/</g, " is less than ")
+        .replace(/>/g, " is greater than ")
+        .replace(/_+/g, " blank ")
+        .replace(/x/g, " x ");
+
+      const utterance = new SpeechSynthesisUtterance(cleanText);
+      if (britishFemaleVoice) {
+        utterance.voice = britishFemaleVoice;
+      }
+      utterance.pitch = 1.05;
+      utterance.rate = 0.95;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // --- 4. FUZZY & NORMALIZED STRING COMPARISON ---
+    function normalizeString(str) {
+      if (!str) return "";
+      return str
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, " ")               // unify spaces
+        .replace(/[\u2018\u2019]/g, "'")    // curly quotes
+        .replace(/[\u201C\u201D]/g, '"')
+        .replace(/\s*([=<>≤≥\+\-\/\(\)])\s*/g, "$1"); // normalize math tokens: "y = 0" -> "y=0"
+    }
+
+    function checkBlankMatch(userInput, acceptedList) {
+      const cleanUser = normalizeString(userInput);
+      if (!cleanUser) return false;
+
+      return acceptedList.some(acc => {
+        const cleanAcc = normalizeString(acc);
+        if (cleanUser === cleanAcc) return true;
+        // Check without parentheses if math point e.g. "(0, 0)" vs "0, 0"
+        if (cleanUser.replace(/[\(\)]/g, "") === cleanAcc.replace(/[\(\)]/g, "")) return true;
+        return false;
+      });
+    }
+
+    // --- 5. DOM ELEMENTS CACHING ---
+    const introCard = document.getElementById('introCard');
+    const quizContainer = document.getElementById('quizContainer');
+    const resultsCard = document.getElementById('resultsCard');
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    const studentNameInput = document.getElementById('studentName');
+    const studentIdInput = document.getElementById('studentId');
+    const introValidationMsg = document.getElementById('introValidationMsg');
+
+    const currentQIdx = document.getElementById('currentQIdx');
+    const progressPercent = document.getElementById('progressPercent');
+    const progressBarFill = document.getElementById('progressBarFill');
+    const scoreCorrect = document.getElementById('scoreCorrect');
+    const scoreWrong = document.getElementById('scoreWrong');
+    const scoreRemaining = document.getElementById('scoreRemaining');
+
+    const questionCategoryBadge = document.getElementById('questionCategoryBadge');
+    const qNumberBadge = document.getElementById('qNumberBadge');
+    const questionPromptContainer = document.getElementById('questionPromptContainer');
+    const checkAnswerRow = document.getElementById('checkAnswerRow');
+    const submitAnswerBtn = document.getElementById('submitAnswerBtn');
+
+    const feedbackContainer = document.getElementById('feedbackContainer');
+    const feedbackIconBox = document.getElementById('feedbackIconBox');
+    const feedbackTitle = document.getElementById('feedbackTitle');
+    const feedbackSummary = document.getElementById('feedbackSummary');
+    const officialAnswerText = document.getElementById('officialAnswerText');
+    const englishExplanation = document.getElementById('englishExplanation');
+    const amharicExplanation = document.getElementById('amharicExplanation');
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const skipBtn = document.getElementById('skipBtn');
+    const finalSubmitBtn = document.getElementById('finalSubmitBtn');
+    const gridBadgesContainer = document.getElementById('gridBadgesContainer');
+    const quickOverviewBtn = document.getElementById('quickOverviewBtn');
+    const answeredCountHeader = document.getElementById('answeredCountHeader');
+
+    const ttsToggleBtn = document.getElementById('ttsToggleBtn');
+    const ttsIcon = document.getElementById('ttsIcon');
+    const ttsStatusText = document.getElementById('ttsStatusText');
+    const speakQuestionBtn = document.getElementById('speakQuestionBtn');
+    const speakExplanationBtn = document.getElementById('speakExplanationBtn');
+
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMsg');
+    const toastIcon = document.getElementById('toastIcon');
+
+    // --- 6. NOTIFICATION SYSTEM (ALERT REPLACEMENT) ---
+    let toastTimeout;
+    function showToast(message, isError = false) {
+      clearTimeout(toastTimeout);
+      toastMsg.textContent = message;
+      if (isError) {
+        toast.className = "fixed bottom-5 right-5 z-50 transform translate-y-0 opacity-100 transition-all duration-300 bg-rose-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-rose-700 text-xs sm:text-sm";
+        toastIcon.className = "fa-solid fa-triangle-exclamation text-rose-300 text-base";
+      } else {
+        toast.className = "fixed bottom-5 right-5 z-50 transform translate-y-0 opacity-100 transition-all duration-300 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-slate-700 text-xs sm:text-sm";
+        toastIcon.className = "fa-solid fa-circle-info text-brand-400 text-base";
+      }
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    // --- 7. INITIALIZATION & REGISTRATION LOGIC ---
+    function initializeMatrixGrid() {
+      gridBadgesContainer.innerHTML = '';
+      for (let i = 0; i < 60; i++) {
+        const pill = document.createElement('button');
+        pill.id = `grid-pill-${i}`;
+        pill.className = "h-8 rounded-lg text-xs font-bold transition flex items-center justify-center border border-slate-200 bg-slate-100 text-slate-600 hover:border-brand-500";
+        pill.textContent = i + 1;
+        pill.addEventListener('click', () => jumpToQuestion(i));
+        gridBadgesContainer.appendChild(pill);
+      }
+    }
+
+    startQuizBtn.addEventListener('click', () => {
+      const name = studentNameInput.value.trim();
+      const id = studentIdInput.value.trim();
+
+      if (!name || !id) {
+        introValidationMsg.classList.remove('hidden');
+        showToast("Please enter your Full Name and Student ID.", true);
+        return;
+      }
+
+      studentInfo.name = name;
+      studentInfo.id = id;
+      studentInfo.startTime = new Date();
+
+      introCard.classList.add('hidden');
+      quizContainer.classList.remove('hidden');
+      quickOverviewBtn.classList.remove('hidden');
+      quickOverviewBtn.classList.add('flex');
+
+      initializeMatrixGrid();
+      loadQuestion(0);
+      showToast(`Welcome, ${name}! Assessment initialized.`);
+    });
+
+    // --- 8. QUESTION RENDERING & INLINE BLANKS LOGIC ---
+    function loadQuestion(index) {
+      if (index < 0 || index >= 60) return;
+      currentIndex = index;
+
+      const q = quizData[index];
+      const savedResponse = userResponses[index];
+
+      // Update progress headers
+      currentQIdx.textContent = index + 1;
+      qNumberBadge.textContent = index + 1;
+      questionCategoryBadge.textContent = q.part;
+      
+      const pct = Math.round(((index + 1) / 60) * 100);
+      progressPercent.textContent = `${pct}%`;
+      progressBarFill.style.width = `${pct}%`;
+
+      // Build interactive sentence with fill-in blanks
+      questionPromptContainer.innerHTML = '';
+      const promptFragment = document.createDocumentFragment();
+
+      q.segments.forEach((segmentText, segIdx) => {
+        // Add static text segment
+        if (segmentText) {
+          const textNode = document.createTextNode(segmentText);
+          promptFragment.appendChild(textNode);
+        }
+
+        // Add blank input if there is a corresponding blank
+        if (segIdx < q.blankCount) {
+          const input = document.createElement('input');
+          input.type = "text";
+          input.id = `blank_input_${segIdx}`;
+          input.dataset.blankIndex = segIdx;
+          input.placeholder = q.blankPlaceholders[segIdx] || "type here";
+          input.autocomplete = "off";
+          input.spellcheck = false;
+          input.className = "blank-input inline-block mx-1.5 my-1 px-3 py-1.5 rounded-lg border border-slate-300 text-sm sm:text-base font-semibold text-brand-900 bg-indigo-50/40 focus:bg-white placeholder:text-slate-400 placeholder:font-normal placeholder:text-xs transition min-w-[130px] sm:min-w-[170px]";
+
+          // If question was already answered, restore values and lock irreversibly
+          if (savedResponse) {
+            input.value = savedResponse.userInputs[segIdx] || "";
+            input.disabled = true; // IRREVERSIBLE LOCK
+            if (savedResponse.isCorrect) {
+              input.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+            } else {
+              input.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+            }
+          }
+
+          // Allow Enter key to submit
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              if (!userResponses[currentIndex]) {
+                submitCurrentAnswer();
+              } else if (currentIndex < 59) {
+                loadQuestion(currentIndex + 1);
+              }
+            }
+          });
+
+          promptFragment.appendChild(input);
+        }
+      });
+
+      questionPromptContainer.appendChild(promptFragment);
+
+      // Handle Feedback Block Visibility
+      if (savedResponse) {
+        showFeedbackUI(savedResponse.isCorrect, q);
+        checkAnswerRow.classList.add('hidden');
+      } else {
+        feedbackContainer.classList.add('hidden');
+        checkAnswerRow.classList.remove('hidden');
+        submitAnswerBtn.disabled = false;
+        // Focus first blank
+        setTimeout(() => {
+          const firstBlank = document.getElementById('blank_input_0');
+          if (firstBlank) firstBlank.focus();
+        }, 100);
+      }
+
+      // Navigation button states
+      prevBtn.disabled = (index === 0);
+      if (index === 59) {
+        nextBtn.classList.add('hidden');
+        finalSubmitBtn.classList.remove('hidden');
+      } else {
+        nextBtn.classList.remove('hidden');
+        finalSubmitBtn.classList.add('hidden');
+      }
+
+      updateMatrixGrid();
+      updateScoreSummary();
+
+      // Audio narration of current item
+      if (isTtsEnabled) {
+        let questionSpokenText = `Question ${index + 1}. `;
+        q.segments.forEach((seg, i) => {
+          questionSpokenText += seg;
+          if (i < q.blankCount) questionSpokenText += " ... blank ... ";
+        });
+        speakText(questionSpokenText);
+      }
+    }
+
+    // --- 9. INSTANT VERIFICATION & AUTO-GRADING ENGINE ---
+    function submitCurrentAnswer() {
+      const q = quizData[currentIndex];
+      const collectedInputs = [];
+      let allFilled = true;
+
+      for (let i = 0; i < q.blankCount; i++) {
+        const inp = document.getElementById(`blank_input_${i}`);
+        const val = inp ? inp.value.trim() : "";
+        if (!val) allFilled = false;
+        collectedInputs.push(val);
+      }
+
+      if (!allFilled) {
+        showToast("Please fill in all blanks before verifying.", true);
+        return;
+      }
+
+      // Check correctness of every blank
+      let isAllCorrect = true;
+      for (let i = 0; i < q.blankCount; i++) {
+        const isThisBlankCorrect = checkBlankMatch(collectedInputs[i], q.acceptableAnswers[i]);
+        if (!isThisBlankCorrect) {
+          isAllCorrect = false;
+        }
+      }
+
+      // Lock answers irreversibly
+      userResponses[currentIndex] = {
+        userInputs: collectedInputs,
+        isCorrect: isAllCorrect,
+        timestamp: new Date()
+      };
+
+      // Lock input fields UI
+      for (let i = 0; i < q.blankCount; i++) {
+        const inp = document.getElementById(`blank_input_${i}`);
+        if (inp) {
+          inp.disabled = true; // IRREVERSIBLE
+          if (isAllCorrect) {
+            inp.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+          } else {
+            inp.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+          }
+        }
+      }
+
+      checkAnswerRow.classList.add('hidden');
+      showFeedbackUI(isAllCorrect, q);
+      updateMatrixGrid();
+      updateScoreSummary();
+
+      // Narrate outcome
+      if (isTtsEnabled) {
+        if (isAllCorrect) {
+          speakText(`Correct! ${q.explanationEn}`);
+        } else {
+          speakText(`Incorrect. The correct answer is: ${q.displayAnswer}. ${q.explanationEn}`);
+        }
+      }
+    }
+
+    submitAnswerBtn.addEventListener('click', submitCurrentAnswer);
+
+    // --- 10. FEEDBACK DISPLAY ---
+    function showFeedbackUI(isCorrect, q) {
+      feedbackContainer.classList.remove('hidden');
+
+      if (isCorrect) {
+        feedbackContainer.className = "rounded-2xl border border-emerald-300 bg-emerald-50/50 p-5 transition-all space-y-4";
+        feedbackIconBox.className = "w-10 h-10 rounded-full flex items-center justify-center font-bold text-white bg-emerald-600 shadow-sm";
+        feedbackIconBox.innerHTML = '<i class="fa-solid fa-check"></i>';
+        feedbackTitle.className = "text-base font-bold text-emerald-900";
+        feedbackTitle.textContent = "Accurate! Well done.";
+        feedbackSummary.className = "text-xs font-medium text-emerald-700";
+        feedbackSummary.textContent = "Your response satisfies the mathematical definition.";
+      } else {
+        feedbackContainer.className = "rounded-2xl border border-rose-300 bg-rose-50/50 p-5 transition-all space-y-4";
+        feedbackIconBox.className = "w-10 h-10 rounded-full flex items-center justify-center font-bold text-white bg-rose-600 shadow-sm";
+        feedbackIconBox.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        feedbackTitle.className = "text-base font-bold text-rose-900";
+        feedbackTitle.textContent = "Incorrect Response";
+        feedbackSummary.className = "text-xs font-medium text-rose-700";
+        feedbackSummary.textContent = "Review the official answer and bilingual explanations below.";
+      }
+
+      officialAnswerText.textContent = q.displayAnswer;
+      englishExplanation.textContent = q.explanationEn;
+      amharicExplanation.textContent = q.explanationAm;
+    }
+
+    // --- 11. NAVIGATION CONTROLS ---
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        loadQuestion(currentIndex - 1);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < 59) {
+        loadQuestion(currentIndex + 1);
+      }
+    });
+
+    skipBtn.addEventListener('click', () => {
+      if (currentIndex < 59) {
+        loadQuestion(currentIndex + 1);
+        showToast(`Jumped to Question ${currentIndex + 1}`);
+      } else {
+        showToast("You are on the final question.");
+      }
+    });
+
+    function jumpToQuestion(index) {
+      loadQuestion(index);
+    }
+
+    // --- 12. MATRIX GRID & STATUS TRACKING ---
+    function updateMatrixGrid() {
+      let answeredCount = 0;
+      for (let i = 0; i < 60; i++) {
+        const pill = document.getElementById(`grid-pill-${i}`);
+        if (!pill) continue;
+
+        // Reset base classes
+        pill.className = "h-8 rounded-lg text-xs font-bold transition flex items-center justify-center border";
+
+        if (i === currentIndex) {
+          pill.classList.add('ring-2', 'ring-brand-600', 'ring-offset-1');
+        }
+
+        const resp = userResponses[i];
+        if (resp) {
+          answeredCount++;
+          if (resp.isCorrect) {
+            pill.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          } else {
+            pill.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          }
+        } else {
+          pill.classList.add('bg-slate-100', 'text-slate-600', 'border-slate-200', 'hover:bg-slate-200');
+        }
+      }
+
+      answeredCountHeader.textContent = answeredCount;
+    }
+
+    function updateScoreSummary() {
+      let correct = 0;
+      let wrong = 0;
+      let answered = 0;
+
+      userResponses.forEach(r => {
+        if (r) {
+          answered++;
+          if (r.isCorrect) correct++;
+          else wrong++;
+        }
+      });
+
+      scoreCorrect.textContent = correct;
+      scoreWrong.textContent = wrong;
+      scoreRemaining.textContent = 60 - answered;
+    }
+
+    // --- 13. NARRATION BUTTON HANDLERS ---
+    ttsToggleBtn.addEventListener('click', () => {
+      isTtsEnabled = !isTtsEnabled;
+      if (isTtsEnabled) {
+        ttsIcon.className = "fa-solid fa-volume-high text-brand-600";
+        ttsStatusText.textContent = "Narrator: ON";
+        showToast("British Narrator Enabled");
+        speakText("British voice narration activated.");
+      } else {
+        window.speechSynthesis.cancel();
+        ttsIcon.className = "fa-solid fa-volume-xmark text-slate-400";
+        ttsStatusText.textContent = "Narrator: OFF";
+        showToast("Voice Narrator Muted");
+      }
+    });
+
+    speakQuestionBtn.addEventListener('click', () => {
+      const q = quizData[currentIndex];
+      let questionSpokenText = `Question ${currentIndex + 1}. `;
+      q.segments.forEach((seg, i) => {
+        questionSpokenText += seg;
+        if (i < q.blankCount) questionSpokenText += " ... blank ... ";
+      });
+      speakText(questionSpokenText);
+    });
+
+    speakExplanationBtn.addEventListener('click', () => {
+      const q = quizData[currentIndex];
+      speakText(`Official answer: ${q.displayAnswer}. Detailed analysis: ${q.explanationEn}`);
+    });
+
+    // --- 14. FINAL COMPLETION & SCORE DASHBOARD ---
+    function computeFinalResults() {
+      studentInfo.endTime = new Date();
+      let totalCorrect = 0;
+      let totalWrong = 0;
+      let unanswered = 0;
+
+      for (let i = 0; i < 60; i++) {
+        if (userResponses[i]) {
+          if (userResponses[i].isCorrect) totalCorrect++;
+          else totalWrong++;
+        } else {
+          unanswered++;
+        }
+      }
+
+      const scorePercent = Math.round((totalCorrect / 60) * 100);
+
+      // Populate dashboard
+      document.getElementById('resStudentName').textContent = studentInfo.name;
+      document.getElementById('resStudentId').textContent = `ID: ${studentInfo.id}`;
+      document.getElementById('resFinalScore').textContent = totalCorrect;
+      document.getElementById('resScorePct').textContent = `${scorePercent}% Score`;
+      document.getElementById('resCorrectNum').textContent = totalCorrect;
+      document.getElementById('resWrongNum').textContent = totalWrong + unanswered;
+
+      const badgeIcon = document.getElementById('performanceBadgeIcon');
+      if (scorePercent >= 80) {
+        badgeIcon.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-3xl font-extrabold shadow-lg mb-4 bg-emerald-100 text-emerald-600 border-2 border-emerald-300";
+        badgeIcon.innerHTML = '<i class="fa-solid fa-trophy"></i>';
+      } else if (scorePercent >= 50) {
+        badgeIcon.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-3xl font-extrabold shadow-lg mb-4 bg-amber-100 text-amber-600 border-2 border-amber-300";
+        badgeIcon.innerHTML = '<i class="fa-solid fa-medal"></i>';
+      } else {
+        badgeIcon.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-3xl font-extrabold shadow-lg mb-4 bg-rose-100 text-rose-600 border-2 border-rose-300";
+        badgeIcon.innerHTML = '<i class="fa-solid fa-book-open"></i>';
+      }
+
+      quizContainer.classList.add('hidden');
+      resultsCard.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (isTtsEnabled) {
+        speakText(`Congratulations ${studentInfo.name}! You have completed the Grade 8 Unit 3 assessment with a score of ${totalCorrect} out of 60, which is ${scorePercent} percent.`);
+      }
+    }
+
+    finalSubmitBtn.addEventListener('click', () => {
+      let unansweredCount = userResponses.filter(r => r === null).length;
+      if (unansweredCount > 0) {
+        showToast(`Note: You have ${unansweredCount} unanswered questions.`);
+      }
+      computeFinalResults();
+    });
+
+    // --- 15. EMAIL TO TEACHER & REPORT DIGEST ---
+    function buildDetailedTextReport() {
+      let totalCorrect = userResponses.filter(r => r && r.isCorrect).length;
+      const scorePercent = Math.round((totalCorrect / 60) * 100);
+      const timeSpent = Math.round((studentInfo.endTime - studentInfo.startTime) / 1000 / 60);
+
+      let report = `GRADE 8 MATHEMATICS - UNIT 3 ASSESSMENT REPORT\n`;
+      report += `====================================================\n`;
+      report += `Student Name  : ${studentInfo.name}\n`;
+      report += `Student ID    : ${studentInfo.id}\n`;
+      report += `Date & Time   : ${studentInfo.endTime.toLocaleString()}\n`;
+      report += `Duration      : approx. ${timeSpent} minute(s)\n`;
+      report += `Final Score   : ${totalCorrect} / 60 (${scorePercent}%)\n`;
+      report += `Teacher Email : mesayferedegn2@gmail.com\n`;
+      report += `====================================================\n\n`;
+      report += `DETAILED ITEM BREAKDOWN:\n`;
+
+      quizData.forEach((q, idx) => {
+        const resp = userResponses[idx];
+        const status = resp ? (resp.isCorrect ? "CORRECT" : "INCORRECT") : "UNANSWERED";
+        const studentAns = resp ? resp.userInputs.join(" ; ") : "[None]";
+        report += `Q${idx + 1} [${status}]: Student: "${studentAns}" | Correct: "${q.displayAnswer}"\n`;
+      });
+
+      return report;
+    }
+
+    document.getElementById('sendEmailBtn').addEventListener('click', () => {
+      const totalCorrect = userResponses.filter(r => r && r.isCorrect).length;
+      const scorePercent = Math.round((totalCorrect / 60) * 100);
+      const recipient = "mesayferedegn2@gmail.com";
+      const subject = encodeURIComponent(`Grade 8 Math Unit 3 Quiz Submission - ${studentInfo.name} (${studentInfo.id})`);
+      
+      const bodyText = `Dear Teacher Mesay Feredegn,\n\n` +
+        `Here are my official test results for Grade 8 Mathematics (Unit 3: Linear Equations and Inequalities):\n\n` +
+        `• Student Name: ${studentInfo.name}\n` +
+        `• Student ID: ${studentInfo.id}\n` +
+        `• Score: ${totalCorrect} / 60 (${scorePercent}%)\n` +
+        `• Completion Time: ${studentInfo.endTime.toLocaleString()}\n\n` +
+        `Summary of Results:\n` +
+        buildDetailedTextReport();
+
+      const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+      window.location.href = mailtoUrl;
+      showToast("Launching default email client...");
+    });
+
+    document.getElementById('copyReportBtn').addEventListener('click', () => {
+      const report = buildDetailedTextReport();
+      
+      // Fallback safe clipboard copy for sandboxed iframes
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = report;
+      tempTextArea.style.position = "fixed";
+      tempTextArea.style.left = "-9999px";
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          showToast("Score Digest copied to clipboard!");
+        } else {
+          showToast("Unable to copy automatically.", true);
+        }
+      } catch (err) {
+        showToast("Clipboard copy unsupported.", true);
+      }
+      document.body.removeChild(tempTextArea);
+    });
+
+    document.getElementById('reviewAllAnswersBtn').addEventListener('click', () => {
+      resultsCard.classList.add('hidden');
+      quizContainer.classList.remove('hidden');
+      loadQuestion(0);
+      showToast("Inspection Mode: Explore questions and bilingual explanations.");
+    });
+
+    document.getElementById('retakeQuizBtn').addEventListener('click', () => {
+      userResponses = new Array(60).fill(null);
+      resultsCard.classList.add('hidden');
+      introCard.classList.remove('hidden');
+      studentNameInput.value = "";
+      studentIdInput.value = "";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      showToast("Assessment reset.");
+    });
+
+    // --- 16. WINDOW ONLOAD BOOTSTRAP ---
+    window.onload = function() {
+      initSpeechSynthesis();
+    };
+  </script>
+</body>
+</html>
